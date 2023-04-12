@@ -5,10 +5,16 @@ const app = express();
 app.use(express.static('static'));
 
 app.get("/", (req, res) => {
-  res.send("Version 0.1");
-  res.send(records);
+  // Redirect to static/login.html
+  res.redirect("/login.html");
+  //res.send("Version 0.1");
+  //res.send(records);
   //Print time
-  res.send(new Date().toString());
+  //res.send(new Date().toString());
+});
+
+app.get("/version", (req, res) => {
+  res.send("Version 0.1");
 });
 
 records = [];
