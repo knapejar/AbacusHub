@@ -2,6 +2,8 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.static('static'));
+
 app.get("/", (req, res) => {
   res.send("Version 0.1");
   res.send(records);
