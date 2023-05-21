@@ -17,18 +17,19 @@ app.get("/version", (req, res) => {
   res.send("Version 0.1");
 });
 
-var currentCount = 0;
+var currentCommand = "";
 
-app.get("/people", (req, res) => {
+app.get("/command", (req, res) => {
   // Send back the current count
-  res.send(currentCount);
+  res.send(currentCommand);
+  currentCommand = "";
 });
 
-app.get("/submitCount", (req, res) => {
+app.get("/submitCommand", (req, res) => {
   // Save the count from get parameter count
-  currentCount = req.query.count;
+  currentCommand = req.query.count;
   // Send back the current count
-  res.send(currentCount);
+  res.send(currentCommand);
 });
 
 module.exports = app;
